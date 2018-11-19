@@ -38,18 +38,16 @@ This document is regarding setup of AWS Instance of Fabric based template.
 -	Make a note of the Elastic IP address that you create and choose Close. 
 -	In the list of Elastic IP addresses, find the Allocation ID for the Elastic IP address created earlier. You use this when you create     the VPC. 
      ** To create the VPC**
--	From the navigation bar, select a Region for the VPC. VPCs are specific to a Region, so select the same Region in which you created     your key pair in and where you are launching the Ethereum stack. For more information, see Create a Key Pair. 
--	On the VPC dashboard, choose Start VPC Wizard. 
--	On the Step 1: Select a VPC Configuration page, choose VPC with Public and Private Subnets, Select. 
--	On the Step 2: VPC with Public and Private Subnets page, leave IPv4 CIDR block and IPv6 CIDR block to their default values. For VPC     name, enter a friendly name. 
--	For Public subnet's IPv4 CIDR, leave the default value. For Availability Zone, choose a zone. For Public subnet name, enter a friendly   name. You specify this subnet as one of the first of two subnets for the Application Load Balancer when you use the template. Note the   Availability Zone of this subnet because you select the same Availability Zone for the private subnet, and a different one for the       other   public subnet. 
--	For Private subnet's IPv4 CIDR, leave the default value. For Availability Zone, select the same Availability Zone as in the previous     step. For Private subnet name, enter a friendly name. 
--	For Elastic IP Allocation ID, select the Elastic IP address that you created earlier. 
--	Leave the default values for other settings.
--	Choose Create VPC. 
-
-
-###To create the second public subnet in a different Availability Zone
+1. From the navigation bar, select a Region for the VPC. VPCs are specific to a Region, so select the same Region in which you created      your key pair in and where you are launching the Ethereum stack. For more information, see Create a Key Pair. 
+2.	On the VPC dashboard, choose Start VPC Wizard. 
+3.	On the Step 1: Select a VPC Configuration page, choose VPC with Public and Private Subnets, Select. 
+4. On the Step 2: VPC with Public and Private Subnets page, leave IPv4 CIDR block and IPv6 CIDR block to their default values. For VPC      name, enter a friendly name. 
+5. For Public subnet's IPv4 CIDR, leave the default value. For Availability Zone, choose a zone. For Public subnet name, enter a            friendly   name. You specify this subnet as one of the first of two subnets for the Application Load Balancer when you use the          template. Note the   Availability Zone of this subnet because you select the same Availability Zone for the private subnet, and a        different one for the       other   public subnet. 
+6.	For Private subnet's IPv4 CIDR, leave the default value. For Availability Zone, select the same Availability Zone as in the previous     step. For Private subnet name, enter a friendly name. 
+7.	For Elastic IP Allocation ID, select the Elastic IP address that you created earlier. 
+8.	Leave the default values for other settings.
+9.	Choose Create VPC. 
+### To create the second public subnet in a different Availability Zone
 -	Choose Subnets and then select the public subnet that you created earlier from the list. Select the Route Table tab and note the Route   table ID. You specify this same route table for the second public subnet below. 
 -	Choose Create Subnet. 
 -	For Name tag, enter a name for the subnet. You use this name later when you create the bastion host in this network. 
@@ -79,10 +77,10 @@ You have to create two security groups
 -	Choose Add Rule. 
 -	For Type, choose All traffic. For Source, leave Custom selected, and then choose the security group for the Application Load Balancer   from the list, for example, MiranzHyperledgerG2. This allows the EC2 instances in the security group to communicate with the             Application Load Balancer. 
 -	Choose Save. 
-###Add inbound and edit outbound rules for the security group for the Application Load Balancer
+### Add inbound and edit outbound rules for the security group for the Application Load Balancer
 -	Select the security group for Application Load Balancers that you created earlier
 
--	###On the Inbound tab, choose Edit and then add the following inbound rules: 
+-	### On the Inbound tab, choose Edit and then add the following inbound rules: 
 -	For Type, choose All traffic. For Source, leave Custom selected, and then choose the security group you are currently editing from the   list, for example, MiranzHyperledgerG2. This allows the Application Load Balancer to communicate with itself and with the bastion       host. 
 -	Choose Add Rule. 
 -	For Type, choose All traffic. For Source, leave Custom selected, and then choose the security group for EC2 instances from the list,     for example, MiranzHyperledgerG1. This allows the EC2 instances in the security group to communicate with the Application Load           Balancer and the bastion host. 
@@ -109,7 +107,7 @@ You have to create two security groups
 -	For Choose the service that will use this role, choose Elastic Container Service. 
 -	Under Select your use case, choose Elastic Container Service, Next:Permissions. 
 -	for Permissions policy, leave the default policy (AmazonEC2ContainerServiceRole) selected, and choose Next:Review. 
--	For Role name, enter a value that helps you identify the role, such as ECSRoleForMiranzHyperledger. For Role Description, enter a brief summary. Note the role name for later. 
+-	For Role name, enter a value that helps you identify the role, such as ECSRoleForMiranzHyperledger. For Role Description, enter a       brief summary. Note the role name for later. 
 -	Choose Create role. 
 -	Select the role that you just created from the list. If your account has many roles, you can search for the role name
 -	Copy the Role ARN value and save it so that you can copy it again. You need this ARN when you create the fabric network.
@@ -167,12 +165,10 @@ You have to create two security groups
 -	mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers
 -	curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
 -	tar -xvf fabric-dev-servers.tar.gz
-
--	### sudo  npm install -g composer-cli
+### sudo  npm install -g composer-cli
 If installing composer-cli pass error “Cannot find module './api”
--  cd /usr/lib/node_modules/composer-cli
--	 sudo npm install node-report --unsafe-perm
-
+1.  cd /usr/lib/node_modules/composer-cli
+2. sudo npm install node-report --unsafe-perm
 -	sudo npm install -g composer-rest-server
 -	sudo npm install -g generator-hyperledger-composer
 -	sudo npm install -g yo
