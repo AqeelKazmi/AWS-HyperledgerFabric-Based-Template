@@ -6,18 +6,18 @@ This document is regarding setup of AWS Instance of Fabric based template.
 ## Steps to create AWS Instance of fabric based template:
 
 ### 1. Create IAM user
--a.	Use your AWS account email address and password to sign in as the AWS account root user to the IAM console at https://console.aws.amazon.com/iam/.
--b.	In the navigation pane of the console, choose Users, and then choose Add user
--c.	For User name, type Administrator.
--d.	Select the check box next to AWS Management Console access, select Custom password, and then type the new user's password in the text box. You can optionally select Require password reset to force the user to create a new password the next time the user signs in.
--e.	Choose Next: Permissions
--f.	On the Set permissions for user page, choose Add user to group. 
--g.	Choose Create group
--h.	In the Create group dialog box, type Administrators.
--i.	For Filter, choose Job function.
--j.	In the policy list, select the check box for AdministratorAccess. Then choose Create group.
--k.	Back in the list of groups, select the check box for your new group. Choose Refresh if necessary to see the group in the list. 
--l.	Choose Next: Review to see the list of group memberships to be added to the new user. When you are ready to proceed, choose Create user. 
+-	Use your AWS account email address and password to sign in as the AWS account root user to the IAM console at https://console.aws.amazon.com/iam/.
+-	In the navigation pane of the console, choose Users, and then choose Add user
+-	For User name, type Administrator.
+-	Select the check box next to AWS Management Console access, select Custom password, and then type the new user's password in the text box. You can optionally select Require password reset to force the user to create a new password the next time the user signs in.
+-	Choose Next: Permissions
+-	On the Set permissions for user page, choose Add user to group. 
+-	Choose Create group
+-	In the Create group dialog box, type Administrators.
+-	For Filter, choose Job function.
+-	In the policy list, select the check box for AdministratorAccess. Then choose Create group.
+-	Back in the list of groups, select the check box for your new group. Choose Refresh if necessary to see the group in the list. 
+-	Choose Next: Review to see the list of group memberships to be added to the new user. When you are ready to proceed, choose Create user. 
 
 
 ###2. Create Key Pair
